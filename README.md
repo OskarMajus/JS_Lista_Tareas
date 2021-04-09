@@ -1,2 +1,2 @@
 # JS_Lista_Tareas
-Crud usando javascript 
+Crud básico sin usar base de datos con javascript 
