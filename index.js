@@ -4,6 +4,11 @@ document.addEventListener('DOMContentLoaded', function(){
     const table = document.getElementById('table');
     const alert = document.getElementById('alert');
     const btn = document.getElementById('add');
+    let id = 1;
+
+    function removeTodo(id){
+        document.getElementById(id).remove();
+    }
 
     function addTodo() {
         if(title.value === '' || description.value === ''){
@@ -13,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function(){
         }
         alert.classList.add('d-none');
         const row = table.insertRow();
+        row.setAttribute('id', id++);
         row.innerHTML = `
             <td>${title.value}</td>
             <td>${description.value}</td>
@@ -28,8 +34,8 @@ document.addEventListener('DOMContentLoaded', function(){
         const removeBtn = document.createElement('button');
         removeBtn.classList.add('btn', 'btn-danger', 'mb-1', 'ml-1');
         removeBtn.innerHTML = '<i class="fa fa-trash"></i>';
-        removeBtn.onclick = function (){
-            console.log('Borrando Fila');
+        removeBtn.onclick = function (e) {
+            removeTodo(row.getAttribute('id'));
         }
         row.children[3].appendChild(removeBtn);
 
