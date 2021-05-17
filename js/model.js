@@ -26,5 +26,12 @@ export default class Model{
 
        //devolver a la vista el json(objeto)  completo de tareas
        return {...tarea} //retorna un objeto y expande las propiedades del mismo (... permiten realizar un clon del objeto)
+
+       
+     }
+
+     removeTarea(id){
+         const index = this.tareas.findIndex((tareas)=> tareas.id===id);
+         this.tareas.splice(index, 1);
      }
 }
