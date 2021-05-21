@@ -14,6 +14,18 @@ export default class Model{
         return this.tareas;
      }
 
+     findTarea(id){
+         return this.tareas.findIndex((tareas)=> tareas.id===id);
+     }
+
+     toggleCompleted(id){
+         const index = this.findTarea(id);
+         const tarea = this.tareas[index];
+         tarea.completed = !tarea.completed;
+         console.log(this.tareas);
+
+     }
+
      addTareas(title, description){
        const tarea = {
            id:this.actualId++,
@@ -31,7 +43,7 @@ export default class Model{
      }
 
      removeTarea(id){
-         const index = this.tareas.findIndex((tareas)=> tareas.id===id);
+         const index = this.findTarea;
          this.tareas.splice(index, 1);
      }
 }
