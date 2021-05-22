@@ -13,6 +13,16 @@ export default class View{
         this.model = model;
     }
 
+    render(){
+        const tareas = this.model.getTareas();
+        //for(let i=0; i< tareas.length; i++)
+        // for (const tarea of tareas){
+        //     this.createRow(tarea);
+        // }
+        tareas.forEach((tarea) => this.createRow(tarea));
+        
+    }
+
     addTareas(title, description){
         const tarea = this.model.addTareas(title, description);
         this.createRow(tarea);

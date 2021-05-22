@@ -7,4 +7,7 @@ document.addEventListener('DOMContentLoaded',() =>{
     model.setView(view); //le asigno la vista instanciada
     view.setModel(model);
 
-})
+    view.render();
+
+
+});
